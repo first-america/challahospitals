@@ -1,0 +1,558 @@
+Mithun Technologies  || +91-9980923226   || devopstrainingblr@gmail.com
+-------------------     --------------      ---------------------------
+
+Linux Commands
+--------------
+
+SSH Tool
+---------
+
+Putty 
+Super Putty
+
+Git Bash 
+
+Terminal --> MAC book
+
+Server IP Address/ Host name
+User name
+Password
+
+ec2-35-154-119-164.ap-south-1.compute.amazonaws.com
+ec2-user
+XXXXXXXX
+
+ssh ec2-user@ec2-35-154-119-164.ap-south-1.compute.amazonaws.com
+
+
+
+USing SSH tools we can connect to any of the Linux/Unix servers and we can
+execute the commnads.
+
+
+FTP Tools
+---------
+
+WinSCP     --> Only Windows Machine
+Filezilla --> This software will work in any of the OS.
+
+
+
+http://console.aws.amazon.com/
+
+
+ec2-35-154-119-164.ap-south-1.compute.amazonaws.com
+
+35.154.119.164
+
+
+lower case
+
+ls
+
+LS
+
+6.5
+
+7.6
+
+Can u explain the directory structure in Linux?
+
+
+
+1 root user
+N normal users 
+mithun
+ruthvik
+
+                      /  -- > Root directory
+					 
+home 
+----
+
+ mithun
+ ruthvik
+ 
+bin
+----
+
+ ls
+ mkdir
+
+sbin  System Binary
+----
+ shutdown
+ reboot
+ useradd
+   
+ 
+ What is the difference between bin and sbin directory?
+ 
+ 
+etc
+---
+ shells
+ hosts
+ shadow
+ gshadow
+ sudoers
+ 
+ motd
+ 
+ sshd_config
+ 
+ 
+ lib
+ ---
+ 
+ 
+ proc
+ -----
+ 
+ cpu info
+  process related info
+  
+dev
+---
+
+
+opt
+---
+
+here we going install external softwares (devops softwares - ant , maven , jenkins...)  
+  
+
+tmp
+---
+
+devops.txt
+
+ 
+ mithun
+ 
+ /home/mithun
+ 
+ 
+ ruvthik
+ 
+ /home/ruthvik
+ 
+ 
+ sudo access
+ 
+ 
+ 
+ 
+ 1) Create AWS account
+ 
+ http://console.aws.amazon.com/
+ 
+ 
+ 2) Create a ec2 Instance (Redhat server)
+ 
+ 3) Down Load Git bash and install
+ 
+ 4) Gibash connetc to Redhat Linux server
+ 
+ 5) Down Load FTP and SCP Tools
+ 
+ http://mithuntechnologies.com/devops/DevOpsToolsMithunTechnologies.html
+ 
+ 
+ 
+ 
+ mkdir devops
+ 
+ mkdir -v test
+ 
+ directory test created..
+ 
+ devops
+   Linux
+     ShellScript
+	    git
+		  ant
+		   maven
+		   
+		   
+mkdir -p devops/Linux/ShellScript/git/ant/maven
+
+
+mkdir mithun{1,2,3,4,5}
+
+mithun1
+mithun2
+mithun3
+mithun4
+mithun5
+
+
+ls
+---
+
+ls -l
+ls -lh
+ls -a
+ls -al
+
+ls -lt
+
+ls -ltr
+
+What is inode?
+
+ls -il
+
+
+cd 
+--
+cd  dire name
+
+cd ..
+
+ec2-user   --> Normal User
+
+/home/ec2-user --> Home dir for ec2-user
+
+cd ~ (OR) cd 
+
+cd -
+
+pwd
+---
+
+
+rmdir
+-----
+
+rm
+--
+
+rm -rf dirname
+rm filename
+
+files and non empty dirs
+
+
+Diff b/w rmdir and rm ?
+
+I node information?
+
+
+
+touch
+-----
+
+touch mithun.txt --> empty file
+
+
+
+find. ****
+----
+How to find the empty files in your current directory?
+
+find ~ -type f  -empty
+
+
+How to find the empty directories in your current directory?
+
+find ~ -type d  -empty
+
+ 
+ 
+umask
+-----
+             umask    directories      files
+			 
+ root user   0022       0755           0644
+normal user  0002       0775           0664 
+             0222
+                        rwxrwxr-x       rw-rw-r--
+                       drwxrwxr-x. 2 ec2-user ec2-user       6 Dec 23 00:44 permissiontest
+					                   -rw-rw-r--. 1 ec2-user ec2-user       0 Dec 23 00:45 permissontest.txt
+
+0777
+0222
+-----
+0555
+
+ r-xr-xr-x  direc
+dr-xr-xr-x. 2 ec2-user ec2-user       6 Dec 23 00:49 permissiontest222
+0666
+0222
+----
+0444
+
+ r--r--r--   file
+-r--r--r--. 1 ec2-user ec2-user       0 Dec 23 00:49 permissiontest222.txt
+
+
+umask 0222
+
+Base Permissions for dir is 0777
+                            0002
+							-----
+							0775 
+							
+Base Permissions for files is 0666
+                              0002
+							   -----
+							   0644
+
+
+sudo su -
+
+exit
+
+
+chmod  777 dir/file name
+
+
+rwx rwx rwx  devpos.txt
+
+ U   G  O
+rwx rwx r-x
+
+rwx rwx r-x  3 ec2-user ec2-user      18 Dec 17 08:45 bhaskar
+7    7  5
+r  -> 4
+
+w  -> 2
+
+x  ->  1
+
+
+
+
+
+-r--r--r--. 1 ec2-user ec2-user 0 Dec 23 00:49 permissiontest222.txt
+
+-rw-rw-rw-. 1 ec2-user ec2-user 0 Dec 23 00:49 permissiontest222.txt
+-rwxr-xr-x. 1 ec2-user ec2-user 0 Dec 23 00:49 permissiontest222.txt
+
+chmod 000 permissiontest222.txt
+
+-rwxrwxrwx. 1 ec2-user ec2-user 0 Dec 23 00:49 permissiontest222.txt
+
+chmod ugo+r permissiontest222.txt
+chmod o+r permissiontest222.txt
+
+chmod -r permissiontest222.txt
+
+
+chown
+-----
+
+chown newownername filename/dir name
+
+chown mithun 
+
+
+chgrp
+-----
+
+chgrp  whell file/dir name
+
+
+chown un:gn f/d name
+
+
+
+
+vi or vim
+
+vi -- > Note pad
+
+vim --> Notepad ++
+
+vi permissontest.txt
+
+Read only mode
+
+Type i --> INSERT MODE
+
+Type esc 
+
+
+Then
+
+:wq
+
+
+vi file
+
+readonly -- mode
+
+/2011
+
+
+nano file name
+
+INSERT
+
+Ctrl + O. --> saving
+
+enter button
+
+Ctrl + x. --> closing
+
+
+
+echo "Hi        Guys"
+
+Hi      Guys
+
+
+
+
+head filename. --> 10 lines
+
+head -n 28 fn --> 28 lines
+
+head -28 fn
+
+
+
+tail file --> 10 lines
+
+tail -n 28 fn
+
+tail -28 fn
+
+
+tail -f fn --> it will display the last 10 lines dynamically
+
+ctrl + c
+
+tail -f -n 20 fn
+
+
+
+
+240 lines
+
+80 95
+
+
+sed -n '80,95p' fn
+
+
+DevOps.txt
+
+
+DevOps is not atechnology, DevOps is a strategy, Learing DevOps is very easy
+DevOps is very goo din market, DevOps tools are
+DevOps DevOps DevOps
+DevOps DevOps
+DevOps Devops devops
+
+red --> blue
+
+sed 's/DevOps/Java/' DevOps.txt
+
+
+
+less fn
+
+
+
+type q
+
+
+First cmd opt as inpt to 2nd cmd pipe |
+
+yum install zip -y 
+yum install unzip -y 
+yum install wget -y 
+
+
+yum install zip unzip wget -y 
+
+
+yum and agt-get 
+
+
+yum --> Redhat,Centos, Fedora distribution
+
+apt-get --> ubuntu. 
+
+
+
+
+
+
+/home
+
+mithun
+chinnu
+bhaskar
+balu
+ruthvik
+
+
+who
+---
+
+httpd --> service
+
+
+
+run prompt
+
+
+services.msc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+					 
+					 
+
+
+
+
+
+
+
+
+
+
+
+
+
